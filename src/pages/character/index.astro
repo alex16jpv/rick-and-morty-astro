@@ -2,7 +2,7 @@
 import { type CharactersResult } from "./types";
 import Layout from "../../layouts/Layout.astro";
 
-export const prerender = false;
+export const prerender = true;
 
 const characters: CharactersResult = await fetch(
   "https://rickandmortyapi.com/api/character?page=1"
@@ -22,6 +22,7 @@ console.log(characters.info);
         <div>
           <h2>{character.name}</h2>
           <img src={character.image} alt={character.name} />
+          <a href={`${character.id}/`}>Go</a>
         </div>
       ))
     }
